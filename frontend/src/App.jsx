@@ -31,11 +31,10 @@ function App() {
       });
 
       const {
-        data: { downloadUrl },
-      } = await axios.post("http://localhost:7777/get-download-url", {
+        data: { downloadUrl }} = await axios.post("http://localhost:7777/get-download-url", {
         key,
       });
-
+      // console.log(downloadUrl)
       setUploadedImage({ url: downloadUrl, name: selectedFile.name });
       setSelectedFile(null);
       document.getElementById("fileInput").value = "";
@@ -73,6 +72,7 @@ function App() {
       </button>
 
       {uploadedImage && (
+        
         <div style={{ marginTop: "20px", textAlign: "center" }}>
           <img
             src={uploadedImage.url}
